@@ -4,6 +4,8 @@
 #endif
 
 #include "equal-paths.h"
+#include <algorithm>
+#include <iostream>
 using namespace std;
 
 
@@ -14,13 +16,14 @@ bool equalPathsHelper(Node* root, int cHeight, int height);
 
 bool equalPaths(Node* root) {
 	// calls helper function to ensure that each leaf node is exactly (height) distance away from root
-	return equalPathsHelper(root, 0, height(root)); 
+	cout << "height: " << height(root) << endl; 
+    return equalPathsHelper(root, 1, height(root)); 
 	
 }
 
 int height (Node* root) {
 	if(!root) return 0; 
-	return 1 + height(root->left) + height(root->right); 
+	return 1 + max(height(root->left), height(root->right)); 
 }
 
 bool equalPathsHelper(Node* root, int cHeight, int height) {
