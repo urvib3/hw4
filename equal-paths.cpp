@@ -1,11 +1,10 @@
 #ifndef RECCHECK
 //if you want to add any #includes like <iostream> you must do them here (before the next endif)
-
+#include <iostream>
 #endif
 
 #include "equal-paths.h"
 #include <algorithm>
-#include <iostream>
 using namespace std;
 
 
@@ -16,7 +15,7 @@ bool equalPathsHelper(Node* root, int cHeight, int height);
 
 bool equalPaths(Node* root) {
 	// calls helper function to ensure that each leaf node is exactly (height) distance away from root
-	cout << "height: " << height(root) << endl; 
+	// cout << "height: " << height(root) << endl; 
     return equalPathsHelper(root, 1, height(root)); 
 	
 }
